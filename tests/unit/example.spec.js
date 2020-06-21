@@ -9,5 +9,6 @@ describe('APP unit test', () => {
      expect(wrapper.isVueInstance()).toBe(true);
     // 測試 calc function
     expect(wrapper.vm.calc(3, 5)).toBe(8);
+    console.log('@@@@')
   });
 });
