@@ -23,6 +23,9 @@ jobs:
       - name: TEST
         run: node index.js
 
+      - name: Unit Test
+        run: npm run test:unit
+
       # - name: Generate PR description
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
