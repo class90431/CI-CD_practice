@@ -6,7 +6,7 @@ on:
 
 jobs:
   call-generate-pr-description:
-    uses: class90431/pr-description-generator/.github/workflows/generate-pr-description.yml@main
+    uses: class90431/pr-description-generator/.github/workflows/auto-pr-description.yaml@main
     with:
       repository_owner: ${{ github.repository_owner }}
       repository_name: ${{ github.event.repository.name }}
