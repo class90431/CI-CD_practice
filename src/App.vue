@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Vue CI/CD 建構自動化部署流水線 - [ CICD 成功 ]</h1>
-    <p>寫一個加法 function 來進行單元測試!!</p>
+    <p>寫一個加法 function 來進行單元測試</p>
     <div class="calc">
       <span>
         <label for=""></label>
