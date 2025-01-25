@@ -5,7 +5,7 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  call-generate-pr-description:
+  call-generate-pr-descriptions:
     uses: class90431/pr-description-generator/.github/workflows/auto-pr-description.yaml@main
     with:
       repository_owner: ${{ github.repository_owner }}
