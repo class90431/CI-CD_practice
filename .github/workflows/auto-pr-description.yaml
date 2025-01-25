@@ -1,33 +1,14 @@
-name: Auto Generate PR Description
+name: Call the Repo Workflow to Generate PR Description
 
 on:
   pull_request:
-    types: [opened, edited]
+    types: [opened, synchronize]
 
 jobs:
-  generate-description:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16"
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: TEST
-        run: node index.js
-
-      - name: Unit Test
-        run: npm run test:unit
-
-      # - name: Generate PR description
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      #   run: node generatePRDescription.js ${{ github.repository_owner }} ${{ github.event.repository.name }} ${{ github.event.pull_request.number }}
+  call-generate-pr-description:
+    uses: class90431/pr-description-generator/.github/workflows/generate-pr-description.yml@main
+    with:
+      repository_owner: ${{ github.repository_owner }}
+      repository_name: ${{ github.event.repository.name }}
+      pull_request_number: ${{ github.event.pull_request.number }}
+      branch_name: ${{ github.event.pull_request.head.ref }}
