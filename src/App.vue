@@ -1,16 +1,16 @@
 <template>
   <div id="app">
     <h1>Vue CI/CD 建構自動化部署流水線 - [ CICD 成功 ]</h1>
-    <p>寫一個加法 function 來進行單元測試</p>
+    <p>寫一個加法 function 來進行單元測試!</p>
     <div class="calc">
       <span>
         <label for=""></label>
-        <input v-model="number1" type="number">
+        <input v-model="number1" type="number" />
       </span>
       <span class="symbol">+</span>
       <span>
         <label for=""></label>
-        <input v-model="number2" type="number">
+        <input v-model="number2" type="number" />
       </span>
       <span class="symbol">=</span>
       <span class="result">{{ result }}</span>
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: 'App',
+  name: "App",
   data() {
     return {
       result: null,
@@ -50,18 +50,18 @@ export default {
 </script>
 
 <style>
-.calc{
+.calc {
   display: flex;
   align-items: center;
 }
-.symbol{
+.symbol {
   margin: 0 10px;
 }
-.remind{
+.remind {
   margin-left: 10px;
   color: red;
 }
-.result{
+.result {
   display: inline-block;
   width: 100px;
   height: 35px;
