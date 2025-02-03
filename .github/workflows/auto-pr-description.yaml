@@ -9,6 +9,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 檢查代碼庫
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      # 設置 Node.js 環境
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+
+      # 安裝依賴
+      - name: Install dependencies
+        run: npm install
+
+      # 使用 Auto Generate PR Description Action
       - name: 使用 Auto Generate PR Description Action
         uses: class90431/pr-description-generator@main
         with:
