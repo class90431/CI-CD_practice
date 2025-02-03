@@ -1,14 +1,21 @@
-name: Trigger PR Description Generation
+name: "Auto Generate PR Description"
 
 on:
   pull_request:
     types: [opened, synchronize]
 
 jobs:
-  call-generate-pr-descriptions:
-    uses: class90431/pr-description-generator/.github/workflows/auto-pr-description.yaml@main
-    with:
-      repository_owner: ${{ github.repository_owner }}
-      repository_name: ${{ github.event.repository.name }}
-      pull_request_number: ${{ github.event.pull_request.number }}
-      branch_name: ${{ github.event.pull_request.head.ref }}
+  generate-pr-description:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 使用 Auto Generate PR Description Action
+        uses: class90431/pr-description-generator@main
+        with:
+          repository_owner: ${{ github.repository_owner }}
+          repository_name: ${{ github.event.pull_request.base.repo.name }}
+          pull_request_number: ${{ github.event.pull_request.number }}
+          branch_name: ${{ github.event.pull_request.head.ref }}
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
